@@ -14,19 +14,6 @@ public class B_SearchResultPage {
     }
 
     private final By nextPagingButton = By.xpath("//button[@aria-label='Next page']");
-    private final By destinationTextField = By.xpath("//input[@name='ss']");
-    private final By clearDestinationValueButton = By.xpath("//span[@data-testid='input-clear']");
-    private final By searchButton = By.xpath("//span[contains(text(), 'Search')]");
-
-
-    public B_SearchResultPage makeSureOfCorrectDestination(String destination){
-        helper = new Helper(driver);
-        helper.waitUntilElementIsVisible(20, clearDestinationValueButton).click();
-        driver.findElement(destinationTextField).clear();
-        driver.findElement(destinationTextField).sendKeys(destination);
-        driver.findElement(searchButton).click();
-        return this;
-    }
 
     public C_PropertyDetailsPage selectHotel (String hotelName){
         By hotel = By.xpath("//div[contains(text(), '" + hotelName + "')]");

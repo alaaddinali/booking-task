@@ -11,7 +11,6 @@ import java.io.IOException;
 
 public class BookingTests extends BaseTests {
 
-    private D_ReservationPage reservationPage;
     @DataProvider(name="booking data")
     public Object[][] bookStayData() throws IOException {
         // get data from Excel Reader class
@@ -22,7 +21,7 @@ public class BookingTests extends BaseTests {
     @Test (dataProvider = "booking data")
     public void bookStay(String destination, String checkinDate, String checkOutDate, String hotelName,
                          String checkInData, String checkOutData){
-        reservationPage = new D_ReservationPage(driver);
+        D_ReservationPage reservationPage = new D_ReservationPage(driver);
         homePage.closeSignInPopup()
                 .enterDestination(destination)
                 .selectDate(checkinDate, checkOutDate)
